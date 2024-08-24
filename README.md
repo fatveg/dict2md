@@ -1,4 +1,4 @@
-# dict2md
+# dict2md - Create a Markdown String from a Dictionary
 
 A function that takes a Python dictionary and returns a markdown formatted string.
 
@@ -85,9 +85,11 @@ Which renders as:
 > 
 > <object object at 0x1008d5690>
 
-# Converting Dictionary to Word .docx
 
-There is also a function dict2docx available that uses python-docx to do a similar conversion but saves the result as a Word .docx file.
+
+# dict2docx - Create a Word File from a Dictionary
+
+There is also a function `dict2docx` that uses `python-docx` to do a similar conversion but saves the result as a Word .docx file.
 
 Use this as follows:
 
