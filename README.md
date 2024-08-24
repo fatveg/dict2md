@@ -59,28 +59,50 @@ value2
 
 Which renders as:
 
-# Example Dictionary
+> # Example Dictionary
+> 
+> ## Description
+> 
+> This is a sample dictionary.
+> 
+> ## Items
+> 
+> * Item 1
+> * Item 2
+> * Item 3
+> 
+> ## Details
+> 
+> ### Key1
+> 
+> value1
+> 
+> ### Key2
+> 
+> value2
+> 
+> ## Custom Object
+> 
+> <object object at 0x1008d5690>
 
-## Description
+# Converting Dictionary to Word .docx
 
-This is a sample dictionary.
+There is also a function dict2docx available that uses python-docx to do a similar conversion but saves the result as a Word .docx file.
 
-## Items
+Use this as follows:
 
-* Item 1
-* Item 2
-* Item 3
+```
+from dict2md.dict2docx import dict2docx
 
-## Details
+d = {
+    "title": "Example Dictionary",
+    "description": "This is a sample dictionary.",
+    "items": ["Item 1", "Item 2", "Item 3"],
+    "details": {"key1": "value1", "key2": "value2"},
+    "custom_object": object(),
+}
 
-### Key1
+dict2docx(d, title_keys=["title"], output_filename="example_word_doc.docx")
+```
 
-value1
-
-### Key2
-
-value2
-
-## Custom Object
-
-<object object at 0x1008d5690>
+This will write the file `example_word_doc.docx`
