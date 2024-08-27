@@ -33,7 +33,22 @@ def dict2docx(
         elif isinstance(value, list):
             _document_object.add_heading(title_clean(key), _heading_level)
             for item in value:
-                _document_object.add_paragraph(item, style="List Bullet")
+                if isinstance(item, str):
+                    _document_object.add_paragraph(item, style="List Bullet")
+                elif isinstance(item, dict):
+                    dict2docx(
+                        item,
+                        title_keys=title_keys,
+                        _heading_level=_heading_level + 1,
+                        _document_object=_document_object,
+                    )
+                elif isinstance(item, list):
+                    for sub_item in item:
+                        _document_object.add_paragraph(
+                            str(sub_item), style="List Bullet"
+                        )
+                else:
+                    _document_object.add_paragraph(str(item), style="List Bullet")
         elif isinstance(value, dict):
             _document_object.add_heading(title_clean(key), _heading_level)
             dict2docx(

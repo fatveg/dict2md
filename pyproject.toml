@@ -1,11 +1,9 @@
 [project]
 name = "dict2md"
-version = "0.1.0"
+version = "0.1.1"
 description = "A function that takes a dictionary and renders it as a markdown string."
 authors = [{ name = "Chris", email = "chris@cjrobson.com" }]
-dependencies = [
-    "python-docx>=1.1.2",
-]
+dependencies = ["python-docx>=1.1.2"]
 readme = "README.md"
 requires-python = ">= 3.8"
 

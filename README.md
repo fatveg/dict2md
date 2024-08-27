@@ -21,6 +21,10 @@ d = {
     "description": "This is a sample dictionary.",
     "items": ["Item 1", "Item 2", "Item 3"],
     "details": {"key1": "value1", "key2": "value2"},
+    "list_of_dicts": [
+        {"subtitle 1": "A description", "subtitle 2": "Another description"},
+        {"Second item is a list": ["Yet more text", "More text"]},
+    ],
     "custom_object": object(),
 }
 
@@ -52,9 +56,25 @@ value1
 
 value2
 
+## List Of Dicts
+
+### Subtitle 1
+
+A description
+
+### Subtitle 2
+
+Another description
+
+### Second Item Is A List
+
+* Yet more text
+* More text
+
+
 ## Custom Object
 
-<object object at 0x1008d5690>
+<object object at 0x1045bd6d0>
 ```
 
 Which renders as:
@@ -81,9 +101,25 @@ Which renders as:
 > 
 > value2
 > 
+> ## List Of Dicts
+> 
+> ### Subtitle 1
+> 
+> A description
+> 
+> ### Subtitle 2
+> 
+> Another description
+> 
+> ### Second Item Is A List
+> 
+> * Yet more text
+> * More text
+> 
+> 
 > ## Custom Object
 > 
-> <object object at 0x1008d5690>
+> <object object at 0x1045bd6d0>
 
 
 
@@ -101,6 +137,10 @@ d = {
     "description": "This is a sample dictionary.",
     "items": ["Item 1", "Item 2", "Item 3"],
     "details": {"key1": "value1", "key2": "value2"},
+    "list_of_dicts": [
+        {"subtitle 1": "A description", "subtitle 2": "Another description"},
+        {"Second item is a list": ["Yet more text", "More text"]},
+    ],
     "custom_object": object(),
 }
 

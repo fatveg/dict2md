@@ -12,7 +12,9 @@ def title_clean(key: str) -> str:
 
 
 def dict2md(
-    d: Dict[str, Any], title_keys: Optional[List[str]] = None, heading_level: int = 1
+    d: Dict[str, Any],
+    title_keys: Optional[List[str]] = None,
+    heading_level: int = 1,
 ) -> str:
     """
     Convert a dictionary to a markdown formatted string.
@@ -30,8 +32,19 @@ def dict2md(
             md += f"{'#' * (heading_level + 1)} {title_clean(key)}\n\n{value}\n\n"
         elif isinstance(value, list):
             md += f"{'#' * (heading_level + 1)} {title_clean(key)}\n\n"
+            # Loop through list, handling dependent on type
             for item in value:
-                md += f"* {item}\n"
+                if isinstance(item, str):
+                    md += f"* {item}\n"
+                elif isinstance(item, dict):
+                    md += dict2md(item, title_keys, heading_level + 1)
+                    md += "\n"
+                elif isinstance(item, list):
+                    # We have a list of lists, which we will effectively flatten
+                    for sub_item in item:
+                        md += f"* {str(sub_item)}\n"
+                else:
+                    md += f"* {str(item)}\n"
             md += "\n"
         elif isinstance(value, dict):
             md += f"{'#' * (heading_level + 1)} {title_clean(key)}\n\n"
