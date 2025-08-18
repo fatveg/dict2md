@@ -4,12 +4,12 @@ A function that takes a Python dictionary and returns a markdown formatted strin
 
 If a key is found in parameter `title_keys: List[str] | None`, then its value will be included at the top (#) level.
 
-If a key has a string value, then the key will be converted to a tile and the key will
+If an item has a string value, then the key will be converted to a title and the key will
 be put at h2 level (##) and the string value as body.
 
-If a key has a list value then the elements of the list will be printed as a bulleted list.
+If an item has a list value then the elements of the list will be printed as a bulleted list.
 
-It a key has a dictionary value then the function will be called recursively, adding one heading level (#) to all headings.
+It an item has a dictionary value then the function will be called recursively, adding one heading level (#) to all headings.
 
 
 ## Example
